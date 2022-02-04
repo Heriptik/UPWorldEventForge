@@ -1,7 +1,6 @@
 package xyz.ultrapixelmon;
 
 import com.pixelmonmod.pixelmon.Pixelmon;
-import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -11,6 +10,7 @@ import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import org.apache.logging.log4j.Logger;
 import xyz.ultrapixelmon.Commands.ReloadCommand;
 import xyz.ultrapixelmon.Config.Config;
+import xyz.ultrapixelmon.Listeners.DisableConnectionInWorldEvent;
 import xyz.ultrapixelmon.Listeners.DisableItemsUse;
 import xyz.ultrapixelmon.Listeners.DisableSendPokemonInWorldEvent;
 
@@ -19,7 +19,7 @@ public class Main
 {
     public static final String MODID = "upworldeventforge";
     public static final String NAME = "UPWorldEventForge";
-    public static final String VERSION = "0.1";
+    public static final String VERSION = "0.2";
 
     private static Logger logger;
 
@@ -35,6 +35,7 @@ public class Main
     {
         MinecraftForge.EVENT_BUS.register(new DisableSendPokemonInWorldEvent());
         MinecraftForge.EVENT_BUS.register(new DisableItemsUse());
+        MinecraftForge.EVENT_BUS.register(new DisableConnectionInWorldEvent());
         Pixelmon.EVENT_BUS.register(new DisableSendPokemonInWorldEvent());
 
         logger.info("[UPWorldEVentForge] Initialisation effectue avec succes. Version: " + Main.VERSION);
