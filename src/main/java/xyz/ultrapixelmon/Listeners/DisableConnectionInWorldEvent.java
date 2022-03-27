@@ -15,7 +15,7 @@ public class DisableConnectionInWorldEvent {
 
         if(player.getEntityWorld().getWorldInfo().getWorldName().equals(Config.NameWorldEvent)){
             player.sendMessage(new TextComponentString(ChatUtils.replaceTextFormating("&6Téléporté au PokéSpawn!")));
-            player.changeDimension(Config.NumeroDIMPokeSpawn);
+            player.world.getMinecraftServer().getCommandManager().executeCommand(player.world.getMinecraftServer(), "spawn");
         }
     }
 }
