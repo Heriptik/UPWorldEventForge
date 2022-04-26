@@ -12,7 +12,7 @@ public class DisableConnectionInWorldEvent {
         EntityPlayer player = (EntityPlayer) event.player;
 
         if(player.getEntityWorld().getWorldInfo().getWorldName().equals(Config.NameWorldEvent)){
-            player.world.getMinecraftServer().getCommandManager().executeCommand(player.world.getMinecraftServer(), "spawn");
+            player.world.getMinecraftServer().getCommandManager().executeCommand(player.world.getMinecraftServer(), "spawn " + player.getName());
         }
     }
 }
