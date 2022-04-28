@@ -52,12 +52,12 @@ public class Commands extends CommandBase {
 
                     if(players.getEntityWorld().getWorldInfo().getWorldName().equals(Config.NameWorldEvent)){
                         if(PermissionsUtils.hasPermission("worldguard.region.bypass.DIM8", players)) continue;
-                        if ((Config.ChaiseMusicalRange) > playerRange) {
+                        if (Config.ChaiseMusicalRange > playerRange && players.posY < Config.ChaiseMusicalHauteurMaxY) {
                             if(players.isRiding()){
                                 players.sendMessage(new TextComponentString(ChatUtils.replaceTextFormating("&aBien joué !")));
                                 playersInList.add(players.getName());
                             } else {
-                                players.setHealth(0);
+                                players.setPositionAndUpdate(players.posX, players.posY + 12, players.posZ);
                             }
                         }
                     }
